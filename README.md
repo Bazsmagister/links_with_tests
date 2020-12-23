@@ -46,3 +46,26 @@ Let’s run our first test to make sure things pass as expected. Laravel 7 adds 
 # Or run phpunit directly
 
 `vendor/bin/phpunit`
+
+? failure:
+could not find driver (SQL: PRAGMA foreign_keys = ON;)
+
+//didn't work
+sudo apt-get install sqlite3
+
+//worked:
+sudo apt-get install php-sqlite3
+
+failure:
+Warning: Your XML configuration validates against a deprecated schema.
+Suggestion: Migrate your XML configuration using "--migrate-configuration"!
+
+I found:
+vendor/phpunit/phpunit/phpunit tests/Feature/ProjectTest.php --migrate-configuration
+
+I did:
+vendor/phpunit/phpunit/phpunit tests/Feature/SubmitLinksTest.php --migrate-configuration
+
+program answer:
+Created backup: /home/bazs/code/links_with_tests/phpunit.xml.bak
+Migrated configuration: /home/bazs/code/links_with_tests/phpunit.xml

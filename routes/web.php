@@ -28,7 +28,7 @@ Route::get('/', function () {
     //or
     //return view('welcome')->withLinks($links);
     //or
-    //return view('welcome', compact('links'));
+    return view('welcome', compact('links'));
 });
 
 Route::get('/submit', function () {
@@ -55,7 +55,7 @@ Route::post('/submit', function (Request $request) {
     $link = new \App\Link($data);
     $link->save();
 
-    return $link;
+    //return $link;
 
     //ver 3:
     //this is a syntactic sugar for the above ones:
